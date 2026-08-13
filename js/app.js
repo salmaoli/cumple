@@ -57,9 +57,30 @@ const giftButton =
 
 giftButton.addEventListener("click", () => {
 
+    // Cambiar a la pantalla final
     changeScreen("final");
 
+    // Lanzar el confeti
     createConfetti();
+
+    // Reproducir tu voz
+    const birthdayAudio =
+        document.getElementById("birthdayAudio");
+
+    if (birthdayAudio) {
+
+        birthdayAudio.currentTime = 0;
+
+        birthdayAudio.play().catch((error) => {
+
+            console.log(
+                "No se pudo reproducir el audio:",
+                error
+            );
+
+        });
+
+    }
 
 });
 
